@@ -1,5 +1,6 @@
 <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between" *ngFor="let note of notes()" @fadeIn @fadeDelete>
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let note of notes()" @fadeIn @fadeDelete
+        [@markComplete]="note.complete">
         <div>{{note.title}}</div>
         <div>
             <button type="button" class="btn btn-info btn-sm me-2" *ngIf="!note.complete"

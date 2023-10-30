@@ -1,4 +1,10 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 export const fadeIn = trigger('fadeIn', [
   transition('void => *', [
@@ -14,3 +20,7 @@ export const fadeDelete = trigger('fadeDelete', [
   ]),
 ]);
 
+export const markComplete = trigger('markComplete', [
+  state('true', style({ backgroundColor: '#e3e3e3' })),
+  transition('* => true', [animate('0.5s ease-out')]),
+]);

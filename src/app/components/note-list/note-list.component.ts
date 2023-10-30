@@ -1,7 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesService } from 'src/app/services/notes.service';
-import { fadeDelete, fadeIn } from 'src/app/animations/animations';
+import {
+  fadeDelete,
+  fadeIn,
+  markComplete,
+} from 'src/app/animations/animations';
 
 @Component({
   selector: 'note-list',
@@ -9,10 +13,7 @@ import { fadeDelete, fadeIn } from 'src/app/animations/animations';
   imports: [CommonModule],
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.scss'],
-  animations: [
-    fadeIn,
-    fadeDelete,
-  ],
+  animations: [fadeIn, fadeDelete, markComplete],
 })
 export class NoteListComponent {
   notesService = inject(NotesService);
