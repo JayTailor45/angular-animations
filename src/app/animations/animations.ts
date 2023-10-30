@@ -19,7 +19,14 @@ export const fadeIn = trigger('fadeIn', [
 export const fadeDelete = trigger('fadeDelete', [
   transition('* => void', [
     style({ backgroundColor: 'red', opacity: 1 }),
-    animate('1s ease-in'),
+    animate(
+      '.8s ease-in',
+      keyframes([
+        style({ opacity: 1 }),
+        style({ opacity: 0 }),
+        style({ opacity: 1 }),
+      ]),
+    ),
   ]),
 ]);
 
@@ -38,7 +45,7 @@ export const staggerList = trigger('staggerList', [
           '1s ease-in-out',
           keyframes([
             style({ opacity: 0, transform: 'translateY(-75px)', offset: 0 }),
-            style({ opacity: 0.3, transform: 'translateY(35px)', offset: 0.3, }),
+            style({ opacity: 0.3, transform: 'translateY(35px)', offset: 0.3 }),
             style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
           ]),
         ),
