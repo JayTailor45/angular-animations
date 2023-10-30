@@ -5,6 +5,7 @@ import {
   fadeDelete,
   fadeIn,
   markComplete,
+  staggerList,
 } from 'src/app/animations/animations';
 
 @Component({
@@ -13,7 +14,7 @@ import {
   imports: [CommonModule],
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.scss'],
-  animations: [fadeIn, fadeDelete, markComplete],
+  animations: [fadeIn, fadeDelete, markComplete, staggerList],
 })
 export class NoteListComponent {
   notesService = inject(NotesService);
