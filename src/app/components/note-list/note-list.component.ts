@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
   selector: 'note-list',
@@ -9,5 +10,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent {
+
+  notesService = inject(NotesService)
+
+  notes = this.notesService.notes;
+
+  onDelete(id: string) {
+    this.notesService.deleteNote(id);
+  }
+
+  onComplete(id: string) {
+    this.notesService.markNoteAsComplete(id);
+  }
 
 }
