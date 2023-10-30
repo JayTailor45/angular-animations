@@ -1,17 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesService } from 'src/app/services/notes.service';
+import { fadeIn } from 'src/app/animations/animations';
 
 @Component({
   selector: 'note-list',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './note-list.component.html',
-  styleUrls: ['./note-list.component.scss']
+  styleUrls: ['./note-list.component.scss'],
+  animations: [
+    fadeIn,
+  ],
 })
 export class NoteListComponent {
-
-  notesService = inject(NotesService)
+  notesService = inject(NotesService);
 
   notes = this.notesService.notes;
 
@@ -22,5 +25,4 @@ export class NoteListComponent {
   onComplete(id: string) {
     this.notesService.markNoteAsComplete(id);
   }
-
 }
