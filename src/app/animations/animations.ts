@@ -54,3 +54,10 @@ export const staggerList = trigger('staggerList', [
     ),
   ]),
 ]);
+
+export const fadeUp = trigger('fadeUp', [
+  transition('void => *', [
+    style({ opacity: 0, transform: 'translateY(32px)' }),
+    animate('1s ease-in-out'),
+  ]),
+]);
